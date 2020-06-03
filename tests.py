@@ -1,26 +1,51 @@
 
 
 
-
+import numpy as np
 import unittest
 import random
 from fourier import tfd, tfd2, tfdi, tfdi2
 
 class TestValidator(unittest.TestCase):
 
-	def setUp(self):
-		# constants here
+    def setUp(self):
+        # constants here
         # self.blabla
-        pass
+        self.bla = "bla"
 
 
-	def test_ttl_update(self):
-		"""----- see whether the ttl value is degraded with time ------"""
-		s = Signal(self.alert_template, self.regular_sensitive)
-		s.TTL = 0 # putting it manually, as normally it is attributed in process() upon first contact
-		ttl_update([s])
-		self.assertEqual(s.TTL, -1)
+    def test_tfd(self):
+        x = np.random.random(1024)
+        expected = np.fft.fft(x)
+        obtained = tfd(x)
 
+        self.assertTrue(np.allclose(expected, obtained))
+
+    def test_tfdi(self):
+        x = np.random.random(1024)
+        f = tfd(x)
+        expected = np.fft.ifft(f)
+        obtained = tfdi(f)
+
+        self.assertTrue(np.allclose(expected, obtained))
+
+    def test_tfd2(self):
+        dim = 12
+        x = np.random.random((dim,dim))
+        expected = np.fft.fft2(x)
+        obtained = tfd2(x)
+
+        self.assertTrue(np.allclose(expected, obtained))
+
+    def test_tfdi2(self):
+        dim = 12
+        x = np.random.random((dim,dim))
+        f = np.fft.fft2(x)
+
+        expected = np.fft.ifft2(f)
+        obtained = tfdi2(f)
+
+        self.assertTrue(np.allclose(expected, obtained))
 
 		
 
