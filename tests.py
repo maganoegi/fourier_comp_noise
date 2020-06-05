@@ -4,7 +4,7 @@
 import numpy as np
 import unittest
 import random
-from fourier import tfd, tfd2, tfdi, tfdi2
+from fourier_lib import tfd, tfd2, tfdi, tfdi2
 
 class TestValidator(unittest.TestCase):
 

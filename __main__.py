@@ -3,11 +3,10 @@ import argparse
 import os
 
 import numpy as np 
-import matplotlib.pyplot as plt
 
 from exercices import noise, compression
 
-from fourier import tfd, tfd2, tfdi, tfdi2
+from fourier_lib import tfd, tfd2, tfdi, tfdi2
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Process some integers.')
