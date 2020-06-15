@@ -41,7 +41,7 @@ def compression(deg):
 
     compressed_image = np.fft.ifft2(compressed_spectrum) if fast else tfdi2(compressed_spectrum)
     compressed_image = real_to_int(compressed_image.real)
-
+ 
     cv2.imwrite(file_2_write, compressed_image)
 
     display_results(spectrum, compressed_spectrum, original, compressed_image)

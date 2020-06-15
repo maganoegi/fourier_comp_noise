@@ -25,6 +25,7 @@ def tfd(x, inverse=False):
     M = np.power(omega_n, coeff_matrix)
 
     return np.dot(M, x) / divider
+    
 
 def tfdi(x):
     return tfd(x, inverse=True)

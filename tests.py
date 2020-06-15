@@ -10,7 +10,6 @@ class TestValidator(unittest.TestCase):
 
     def setUp(self):
         # constants here
-        # self.blabla
         self.bla = "bla"
 
 
